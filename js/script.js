@@ -59,10 +59,10 @@ function mainLoader(data) {
         let hb = document.createElement("div"); hb.className = "slot-bg"; hb.id = `hb${i}`;
         let mb = document.createElement("div"); mb.className = "slot-bg"; mb.id = `mb${i}`;
         let sb = document.createElement("div"); sb.className = "slot-bg"; sb.id = `sb${i}`;
-        let dh = document.createElement("span"); dh.className = "slot-head"; dh.innerHTML = ""; dh.id = `d${i}`;
-        let hh = document.createElement("span"); hh.className = "slot-head"; hh.innerHTML = ""; hh.id = `h${i}`;
-        let mh = document.createElement("span"); mh.className = "slot-head"; mh.innerHTML = ""; mh.id = `m${i}`;
-        let sh = document.createElement("span"); sh.className = "slot-head"; sh.innerHTML = ""; sh.id = `s${i}`;
+        let dh = document.createElement("span"); dh.className = "slot-head"; dh.innerHTML = "..."; dh.id = `d${i}`;
+        let hh = document.createElement("span"); hh.className = "slot-head"; hh.innerHTML = "..."; hh.id = `h${i}`;
+        let mh = document.createElement("span"); mh.className = "slot-head"; mh.innerHTML = "..."; mh.id = `m${i}`;
+        let sh = document.createElement("span"); sh.className = "slot-head"; sh.innerHTML = "..."; sh.id = `s${i}`;
         let dt = document.createElement("span"); dt.className = "slot-tail"; dt.innerHTML = "days";
         let ht = document.createElement("span"); ht.className = "slot-tail"; ht.innerHTML = "hours";
         let mt = document.createElement("span"); mt.className = "slot-tail"; mt.innerHTML = "minutes";
