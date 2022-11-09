@@ -53,19 +53,19 @@ function mainLoader(data) {
         let counter = document.createElement("div"); counter.className = "counter";
         let d = document.createElement("div"); d.className = "d-slot slot";
         let db = document.createElement("div"); db.className = "slot-bg"; db.id = `db${i}`;
-        let dh = document.createElement("span"); dh.className = "slot-head"; dh.innerHTML = "..."; dh.id = `d${i}`;
+        let dh = document.createElement("span"); dh.className = "slot-head"; dh.innerHTML = ""; dh.id = `d${i}`;
         let dt = document.createElement("span"); dt.className = "slot-tail"; dt.innerHTML = "days";
         let h = document.createElement("div"); h.className = "h-slot slot";
         let hb = document.createElement("div"); hb.className = "slot-bg "; hb.id = `hb${i}`;
-        let hh = document.createElement("span"); hh.className = "slot-head"; hh.innerHTML = "..."; hh.id = `h${i}`;
+        let hh = document.createElement("span"); hh.className = "slot-head"; hh.innerHTML = ""; hh.id = `h${i}`;
         let ht = document.createElement("span"); ht.className = "slot-tail"; ht.innerHTML = "hours";
         let m = document.createElement("div"); m.className = "m-slot slot";
         let mb = document.createElement("div"); mb.className = "slot-bg"; mb.id = `mb${i}`;
-        let mh = document.createElement("span"); mh.className = "slot-head"; mh.innerHTML = "..."; mh.id = `m${i}`;
+        let mh = document.createElement("span"); mh.className = "slot-head"; mh.innerHTML = ""; mh.id = `m${i}`;
         let mt = document.createElement("span"); mt.className = "slot-tail"; mt.innerHTML = "minutes";
         let s = document.createElement("div"); s.className = "s-slot slot";
         let sb = document.createElement("div"); sb.className = "slot-bg"; sb.id = `sb${i}`;
-        let sh = document.createElement("span"); sh.className = "slot-head"; sh.innerHTML = "..."; sh.id = `s${i}`;
+        let sh = document.createElement("span"); sh.className = "slot-head"; sh.innerHTML = ""; sh.id = `s${i}`;
         let st = document.createElement("span"); st.className = "slot-tail"; st.innerHTML = "seconds";
 
         course.innerHTML = idvData.course;
