@@ -52,28 +52,26 @@ function mainLoader(data) {
         let prof = document.createElement("div"); prof.className = "prof";
         let counter = document.createElement("div"); counter.className = "counter";
         let d = document.createElement("div"); d.className = "d-slot slot";
-        let db = document.createElement("div"); db.className = "slot-bg"; db.id = `db${i}`;
-        let dh = document.createElement("span"); dh.className = "slot-head"; dh.innerHTML = ""; dh.id = `d${i}`;
-        let dt = document.createElement("span"); dt.className = "slot-tail"; dt.innerHTML = "days";
         let h = document.createElement("div"); h.className = "h-slot slot";
-        let hb = document.createElement("div"); hb.className = "slot-bg "; hb.id = `hb${i}`;
-        let hh = document.createElement("span"); hh.className = "slot-head"; hh.innerHTML = ""; hh.id = `h${i}`;
-        let ht = document.createElement("span"); ht.className = "slot-tail"; ht.innerHTML = "hours";
         let m = document.createElement("div"); m.className = "m-slot slot";
-        let mb = document.createElement("div"); mb.className = "slot-bg"; mb.id = `mb${i}`;
-        let mh = document.createElement("span"); mh.className = "slot-head"; mh.innerHTML = ""; mh.id = `m${i}`;
-        let mt = document.createElement("span"); mt.className = "slot-tail"; mt.innerHTML = "minutes";
         let s = document.createElement("div"); s.className = "s-slot slot";
+        let db = document.createElement("div"); db.className = "slot-bg"; db.id = `db${i}`;
+        let hb = document.createElement("div"); hb.className = "slot-bg"; hb.id = `hb${i}`;
+        let mb = document.createElement("div"); mb.className = "slot-bg"; mb.id = `mb${i}`;
         let sb = document.createElement("div"); sb.className = "slot-bg"; sb.id = `sb${i}`;
+        let dh = document.createElement("span"); dh.className = "slot-head"; dh.innerHTML = ""; dh.id = `d${i}`;
+        let hh = document.createElement("span"); hh.className = "slot-head"; hh.innerHTML = ""; hh.id = `h${i}`;
+        let mh = document.createElement("span"); mh.className = "slot-head"; mh.innerHTML = ""; mh.id = `m${i}`;
         let sh = document.createElement("span"); sh.className = "slot-head"; sh.innerHTML = ""; sh.id = `s${i}`;
+        let dt = document.createElement("span"); dt.className = "slot-tail"; dt.innerHTML = "days";
+        let ht = document.createElement("span"); ht.className = "slot-tail"; ht.innerHTML = "hours";
+        let mt = document.createElement("span"); mt.className = "slot-tail"; mt.innerHTML = "minutes";
         let st = document.createElement("span"); st.className = "slot-tail"; st.innerHTML = "seconds";
 
-        course.innerHTML = idvData.course;
-        prof.innerHTML = idvData.prof;
+        course.innerHTML = idvData.course; prof.innerHTML = idvData.prof;
         R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
         // RGBs = `rgba(${R+((256-R)*0.5)}, ${G+(256-G)*0.5}, ${B+(256-B)*0.5}, 1)`;
-        RGBs = `rgba(256, 256, 256, 1)`;
-        RGBe = `rgba(${R*0.6}, ${G*0.6}, ${B*0.6}, 1)`;
+        RGBs = `rgba(256, 256, 256, 1)`; RGBe = `rgba(${R*0.6}, ${G*0.6}, ${B*0.6}, 1)`;
         card.style.backgroundImage = `linear-gradient(150deg, ${RGBs}, ${RGBe})`;
         card.style.boxShadow = `0px 0px 40px rgb(${R}, ${G}, ${B})`;
         sb.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;
@@ -98,7 +96,7 @@ function mainLoader(data) {
         idvScript.innerHTML = timeScriptWriter(idvData, i);
         scriptMain.appendChild(idvScript);
     }
-    // scriptMain.remove();
+    scriptMain.remove();
 }
 
 mainLoader(data);
