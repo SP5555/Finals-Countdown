@@ -1,0 +1,98 @@
+/* variables */
+:root{
+    --c0: #1d2528;
+    --c1: #1f272a;
+    --c2: #232c31;
+    --c3: #37464d;
+    --c4: #3c4d54;
+}
+/* ----- ----- ----- */
+
+@font-face {
+    font-family: Comfortaa;
+    src: url(fonts/Comfortaa.ttf);
+}
+
+/* general */
+html{min-width: 440px; scroll-behavior: smooth; background-color: var(--c1);}
+body{
+	font-family: Comfortaa;
+    cursor: default; background: var(--c1); color: #FFF; user-select: none;
+}
+body::-webkit-scrollbar {display: none;}
+*{box-sizing: border-box; outline: none; font: inherit;}
+/* ----- ----- ----- */
+
+.main-title-holder{display: inline-block; position: relative;}
+.main-title{
+    display: inline-block; padding: 20px; font-weight: bold;
+    font-size: 30px; line-height: 40px;
+}
+.vertical-space{height: 10px;}
+
+.main-body{min-height: 600px; display: flex; flex-direction: column;}
+.wrapper{margin-left: 10px; margin-right: 10px; display: flex; transition: 0.4s;}
+@media (min-width: 768px) {
+	.wrapper{margin-left: 6%; margin-right: 6%;}
+}
+@media (min-width: 992px) {
+	.wrapper{margin-left: 8%; margin-right: 8%;}
+}
+@media (min-width: 1200px) {
+	.wrapper{margin-left: 12%; margin-right: 12%;}
+}
+
+.align-center{justify-content: center;}
+.footer{min-height: 100px;}
+.footer-text{
+    font-size: 20px; line-height: 100px; filter: blur(2px); opacity: 0;
+	text-align: center; padding: 20px 0 20px 0; transform: scaleX(1.04); transition: 0.4s;}
+.footer-text:hover{filter: none; opacity: 1; transform: scaleX(1);}
+
+/* cards */
+.main-chart{display: flex; flex-direction: column;
+}
+.card{
+    height: auto; width: auto; border-radius: 20px;
+    background-size: 200%; background-position: right; transition: 0.4s;
+    margin: 14px 0 14px 0; padding: 16px;
+}
+.c-and-p{display: flex; flex-direction: row; align-items: flex-end; font-weight: bold;}
+.course{font-size: 32px; transition: 0.4s;}
+.prof{font-size: 16px; margin-left: 4px; transition: 0.4s;}
+.counter{
+    display: flex; flex-direction: row; justify-content: flex-end;
+}
+.slot{
+    display: flex; flex-direction: column; justify-content: flex-end; position: relative;
+    margin-left: 12px; border-radius: 10px; transition: 0.4s;
+    height: 120px; width: 80px;
+}
+.slot-bg{
+    position: absolute; border-radius: 10px;
+    bottom: 0px; transition: 0.6s;
+    height: 0px; width: 80px;
+}
+.slot-head{text-align: center; font-size: 32px; z-index: 1; transition: 0.4s;}
+.slot-tail{text-align: center; font-size: 16px; z-index: 1; transition: 0.4s; margin-bottom: 16px;}
+
+.card:hover{background-position: left;}
+.card:hover .c-and-p{color: #000;}
+.card:hover .slot-head{color: #000;}
+.card:hover .slot-tail{color: #000;}
+/* ----- ----- ----- */
+
+/* responsive */
+@media (min-width: 768px) {
+    .card{margin: 20px 0 20px 0;}
+    .course{font-size: 40px;}
+    .prof{font-size: 20px; margin-left: 4px;}
+    .slot{height: 160px; width: 100px;}
+    .slot-bg{width: 100px;}
+    .slot-head{font-size: 40px;}
+    .slot-tail{font-size: 20px;}
+}
+/* ----- ----- ----- */
+
+/* debugger */
+.shit{border: 1px solid red;}
