@@ -31,10 +31,10 @@ function timeScriptWriter(idvData, i) {
             document.getElementById("hb${i}").style.height = "100%";
             document.getElementById("mb${i}").style.height = "100%";
             document.getElementById("sb${i}").style.height = "100%";
-            if (d${i}.innerHTML != d) {d${i}.innerHTML = 0;}
-            if (h${i}.innerHTML != h) {h${i}.innerHTML = 0;}
-            if (m${i}.innerHTML != m) {m${i}.innerHTML = 0;}
-            if (s${i}.innerHTML != s) {s${i}.innerHTML = 0;}
+            d${i}.innerHTML = 0;
+            h${i}.innerHTML = 0;
+            m${i}.innerHTML = 0;
+            s${i}.innerHTML = 0;
         }
     }, 1000)`
     return r;

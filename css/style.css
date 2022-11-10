@@ -74,7 +74,7 @@ body::-webkit-scrollbar {display: none;}
 .course{font-size: 28px; transition: 0.4s;}
 .prof{font-size: 14px; margin-left: 4px; transition: 0.4s;}
 .counter{
-    display: flex; flex-direction: row; justify-content: flex-end;
+    display: flex; flex-direction: row; justify-content: flex-end; margin-top: 10px;
 }
 .slot{
     display: flex; flex-direction: column; justify-content: flex-end; position: relative;
