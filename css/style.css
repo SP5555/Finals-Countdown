@@ -9,19 +9,22 @@
     --c4: #3c4d54;
     --fimg: 40px;
 }
-/* ----- ----- ----- */
-
 @font-face {
     font-family: Comfortaa;
     src: url(../fonts/Comfortaa.ttf);
 }
-
-@keyframes test{
+@keyframes pulsate{
     0% {filter: opacity(1) invert(0);}
     10% {filter: opacity(1) invert(0);}
     80% {filter: opacity(0.2) invert(20%);}
     100% {filter: opacity(1) invert(0);}
 }
+@keyframes profAni{
+    0% {filter: opacity(0); transform: translateX(10px) translateY(0px);}
+    50% {filter: opacity(1); transform: translateX(00px) translateY(0px); color: var(--txtw);}
+    100% {filter: opacity(1); transform: translateX(0px) translateY(0px); color: var(--txtb);}
+}
+/* ----- ----- ----- */
 
 /* general */
 html{min-width: 440px; scroll-behavior: smooth; background-color: var(--c1);}
@@ -41,7 +44,7 @@ body::-webkit-scrollbar {display: none;}
 .vertical-space{height: 10px;}
 
 .main-body{min-height: 600px; display: flex; flex-direction: column;}
-.wrapper{margin-left: 10px; margin-right: 10px; display: flex; transition: 0.4s;}
+.wrapper{margin-left: 10px; margin-right: 10px; display: flex; transition-duration: 0.4s;}
 @media (min-width: 768px) {
 	.wrapper{margin-left: 4%; margin-right: 4%;}
 }
@@ -55,10 +58,10 @@ body::-webkit-scrollbar {display: none;}
 .align-center{justify-content: center;}
 .footer{min-height: 100px; width: 100%; display: flex; justify-content: flex-start; align-items: center;}
 .footer-img-links{height: var(--fimg); margin: 20px;}
-.footer-img{height: var(--fimg); width: var(--fimg); transition: 0.2s;}
+.footer-img{height: var(--fimg); width: var(--fimg); transition-duration: 0.2s;}
 .footer-text{
     font-size: 16px; line-height: 100px; filter: blur(2px); opacity: 0;
-	text-align: center; padding: 20px 0 20px 0; transform: scaleX(1.04); transition: 0.4s;}
+	text-align: center; padding: 20px 0 20px 0; transform: scaleX(1.04); transition-duration: 0.4s;}
 .footer-text:hover{filter: none; opacity: 1; transform: scaleX(1);}
 
 /* cards */
@@ -67,40 +70,42 @@ body::-webkit-scrollbar {display: none;}
 .card-border{padding: 14px; width: 100%;}
 .card{
     height: auto; width: auto; border-radius: 16px;
-    background-size: 200%; background-position: right; transition: 0.4s;
+    background-size: 200%; background-position: right; transition-duration: 0.8s;
     padding: 16px;
 }
 .c-and-p{display: flex; flex-direction: row; align-items: flex-end; font-weight: bold;}
-.course{font-size: 28px; transition: 0.4s;}
-.prof{font-size: 14px; margin-left: 4px; transition: 0.4s;}
+.course{font-size: 28px; transition-duration: 0.4s;}
+.prof{font-size: 14px; margin-left: 4px; filter: opacity(0);}
 .counter{
     display: flex; flex-direction: row; justify-content: flex-end; margin-top: 10px;
 }
 .slot{
     display: flex; flex-direction: column; justify-content: flex-end; position: relative;
-    margin-left: 12px; transition: 0.4s;
+    margin-left: 12px; transition-duration: 0.4s;
     height: 140px; width: 72px;
 }
 .slot-bg{
     position: absolute; border-radius: 8px;
-    bottom: 0px; transition: 0.6s;
+    bottom: 0px; transition-duration: 0.6s;
     height: 0px; width: 72px;
 }
 .slot:nth-child(1) .slot-bg{animation-delay: 0.1s;}
 .slot:nth-child(2) .slot-bg{animation-delay: 0.2s;}
 .slot:nth-child(3) .slot-bg{animation-delay: 0.3s;}
 .slot:nth-child(4) .slot-bg{animation-delay: 0.4s;}
-.slot-head{text-align: center; font-size: 24px; z-index: 1; transition: 0.4s;}
-.slot-tail{text-align: center; font-size: 12px; z-index: 1; transition: 0.4s; margin-bottom: 12px;}
+.slot-head{text-align: center; font-size: 24px; z-index: 1; transition-duration: 0.4s;}
+.slot-tail{text-align: center; font-size: 12px; z-index: 1; transition-duration: 0.4s; margin-bottom: 12px;}
 
 .card:hover{background-position: left;}
-.card:hover .c-and-p{color: var(--txtb);}
+.card:hover .course{color: var(--txtb);}
+.card:hover .prof{animation-name: profAni; animation-duration: 0.6s;
+    animation-direction: normal; animation-iteration-count: 1; animation-fill-mode: forwards;}
 .card:hover .slot-bg{
-    animation-name: test; animation-duration: 1s;
+    animation-name: pulsate; animation-duration: 1s;
     animation-direction: normal; animation-iteration-count: infinite;}
 .card:hover .slot-head{color: var(--txtb);}
 .card:hover .slot-tail{color: var(--txtb);}
-.footer-img:hover {transform: scale(1.2);}
+.footer-img:hover {transform: scale(1.1); filter: invert(100%);}
 /* ----- ----- ----- */
 
 /* responsive */
