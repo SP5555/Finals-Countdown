@@ -1,10 +1,13 @@
 /* variables */
 :root{
+    --txtw: #FFF;
+    --txtb: #000;
     --c0: #1d2528;
     --c1: #1f272a;
     --c2: #232c31;
     --c3: #37464d;
     --c4: #3c4d54;
+    --fimg: 40px;
 }
 /* ----- ----- ----- */
 
@@ -13,11 +16,18 @@
     src: url(../fonts/Comfortaa.ttf);
 }
 
+@keyframes test{
+    0% {filter: opacity(1) invert(0);}
+    10% {filter: opacity(1) invert(0);}
+    80% {filter: opacity(0.2) invert(20%);}
+    100% {filter: opacity(1) invert(0);}
+}
+
 /* general */
 html{min-width: 440px; scroll-behavior: smooth; background-color: var(--c1);}
 body{
 	font-family: Comfortaa;
-    cursor: default; background: var(--c1); color: #FFF; user-select: none;
+    cursor: default; background: var(--c1); color: var(--txtw); user-select: none;
 }
 body::-webkit-scrollbar {display: none;}
 *{box-sizing: border-box; outline: none; font: inherit;}
@@ -43,44 +53,54 @@ body::-webkit-scrollbar {display: none;}
 }
 
 .align-center{justify-content: center;}
-.footer{min-height: 100px;}
+.footer{min-height: 100px; width: 100%; display: flex; justify-content: flex-start; align-items: center;}
+.footer-img-links{height: var(--fimg); margin: 20px;}
+.footer-img{height: var(--fimg); width: var(--fimg); transition: 0.2s;}
 .footer-text{
-    font-size: 20px; line-height: 100px; filter: blur(2px); opacity: 0;
+    font-size: 16px; line-height: 100px; filter: blur(2px); opacity: 0;
 	text-align: center; padding: 20px 0 20px 0; transform: scaleX(1.04); transition: 0.4s;}
 .footer-text:hover{filter: none; opacity: 1; transform: scaleX(1);}
 
 /* cards */
 .main-chart{display: flex; flex-direction: row; flex-wrap: wrap;
 }
-.card-border{padding: 10px; width: 100%;}
+.card-border{padding: 14px; width: 100%;}
 .card{
-    height: auto; width: auto; border-radius: 20px;
+    height: auto; width: auto; border-radius: 16px;
     background-size: 200%; background-position: right; transition: 0.4s;
     padding: 16px;
 }
 .c-and-p{display: flex; flex-direction: row; align-items: flex-end; font-weight: bold;}
-.course{font-size: 32px; transition: 0.4s;}
-.prof{font-size: 16px; margin-left: 4px; transition: 0.4s;}
+.course{font-size: 28px; transition: 0.4s;}
+.prof{font-size: 14px; margin-left: 4px; transition: 0.4s;}
 .counter{
     display: flex; flex-direction: row; justify-content: flex-end;
 }
 .slot{
     display: flex; flex-direction: column; justify-content: flex-end; position: relative;
-    margin-left: 12px; border-radius: 10px; transition: 0.4s;
-    height: 120px; width: 80px;
+    margin-left: 12px; transition: 0.4s;
+    height: 140px; width: 72px;
 }
 .slot-bg{
-    position: absolute; border-radius: 10px;
+    position: absolute; border-radius: 8px;
     bottom: 0px; transition: 0.6s;
-    height: 0px; width: 80px;
+    height: 0px; width: 72px;
 }
-.slot-head{text-align: center; font-size: 32px; z-index: 1; transition: 0.4s;}
-.slot-tail{text-align: center; font-size: 16px; z-index: 1; transition: 0.4s; margin-bottom: 16px;}
+.slot:nth-child(1) .slot-bg{animation-delay: 0.1s;}
+.slot:nth-child(2) .slot-bg{animation-delay: 0.2s;}
+.slot:nth-child(3) .slot-bg{animation-delay: 0.3s;}
+.slot:nth-child(4) .slot-bg{animation-delay: 0.4s;}
+.slot-head{text-align: center; font-size: 24px; z-index: 1; transition: 0.4s;}
+.slot-tail{text-align: center; font-size: 12px; z-index: 1; transition: 0.4s; margin-bottom: 12px;}
 
 .card:hover{background-position: left;}
-.card:hover .c-and-p{color: #000;}
-.card:hover .slot-head{color: #000;}
-.card:hover .slot-tail{color: #000;}
+.card:hover .c-and-p{color: var(--txtb);}
+.card:hover .slot-bg{
+    animation-name: test; animation-duration: 1s;
+    animation-direction: normal; animation-iteration-count: infinite;}
+.card:hover .slot-head{color: var(--txtb);}
+.card:hover .slot-tail{color: var(--txtb);}
+.footer-img:hover {transform: scale(1.2);}
 /* ----- ----- ----- */
 
 /* responsive */
@@ -90,12 +110,12 @@ body::-webkit-scrollbar {display: none;}
     .card-border{width: 50%;}
 }
 @media (min-width: 1200px) {
-    .course{font-size: 40px;}
-    .prof{font-size: 20px; margin-left: 4px;}
-    .slot{height: 160px; width: 100px;}
-    .slot-bg{width: 100px;}
-    .slot-head{font-size: 40px;}
-    .slot-tail{font-size: 20px;}
+    .course{font-size: 36px;}
+    .prof{font-size: 18px; margin-left: 4px;}
+    .slot{height: 200px; width: 96px;}
+    .slot-bg{width: 96px;}
+    .slot-head{font-size: 36px;}
+    .slot-tail{font-size: 18px;}
 }
 /* ----- ----- ----- */
 
