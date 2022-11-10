@@ -71,8 +71,9 @@ function mainLoader(data) {
 
         course.innerHTML = idvData.course; prof.innerHTML = idvData.prof;
         R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
-        // RGBs = `rgba(${R+((256-R)*0.5)}, ${G+(256-G)*0.5}, ${B+(256-B)*0.5}, 1)`;
-        RGBs = `rgba(256, 256, 256, 1)`; RGBe = `rgba(${R*0.6}, ${G*0.6}, ${B*0.6}, 1)`;
+        // RGBs = `rgba(${R+((256-R)*0.8)}, ${G+(256-G)*0.8}, ${B+(256-B)*0.8}, 1)`;
+        RGBs = `rgba(256, 256, 256, 1)`;
+        RGBe = `rgba(${R*0.6}, ${G*0.6}, ${B*0.6}, 1)`;
         card.style.backgroundImage = `linear-gradient(150deg, ${RGBs}, ${RGBe})`;
         card.style.boxShadow = `0px 0px 28px rgb(${R}, ${G}, ${B})`;
         sb.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;

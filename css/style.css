@@ -21,7 +21,7 @@
 }
 @keyframes profAni{
     0% {filter: opacity(0); transform: translateX(10px) translateY(0px);}
-    50% {filter: opacity(1); transform: translateX(00px) translateY(0px); color: var(--txtw);}
+    50% {filter: opacity(1); transform: translateX(0px) translateY(0px); color: var(--txtw);}
     100% {filter: opacity(1); transform: translateX(0px) translateY(0px); color: var(--txtb);}
 }
 /* ----- ----- ----- */
@@ -93,6 +93,10 @@ body::-webkit-scrollbar {display: none;}
 .slot:nth-child(2) .slot-bg{animation-delay: 0.2s;}
 .slot:nth-child(3) .slot-bg{animation-delay: 0.3s;}
 .slot:nth-child(4) .slot-bg{animation-delay: 0.4s;}
+.slot:nth-child(1) .slot-head, .slot:nth-child(1) .slot-tail{transition-delay: 0.1s;}
+.slot:nth-child(2) .slot-head, .slot:nth-child(2) .slot-tail{transition-delay: 0.2s;}
+.slot:nth-child(3) .slot-head, .slot:nth-child(3) .slot-tail{transition-delay: 0.3s;}
+.slot:nth-child(4) .slot-head, .slot:nth-child(4) .slot-tail{transition-delay: 0.4s;}
 .slot-head{text-align: center; font-size: 24px; z-index: 1; transition-duration: 0.4s;}
 .slot-tail{text-align: center; font-size: 12px; z-index: 1; transition-duration: 0.4s; margin-bottom: 12px;}
 
@@ -103,8 +107,7 @@ body::-webkit-scrollbar {display: none;}
 .card:hover .slot-bg{
     animation-name: pulsate; animation-duration: 1s;
     animation-direction: normal; animation-iteration-count: infinite;}
-.card:hover .slot-head{color: var(--txtb);}
-.card:hover .slot-tail{color: var(--txtb);}
+.card:hover .slot-head, .card:hover .slot-tail{color: var(--txtb);}
 .footer-img:hover {transform: scale(1.1); filter: invert(100%);}
 /* ----- ----- ----- */
 
