@@ -46,6 +46,7 @@ function mainLoader(data) {
     for (var i = 0; i < data.length; i++) {
         idvData = data[i];
 
+        let cardB = document.createElement("div"); cardB.className = "card-border";
         let card = document.createElement("div"); card.className = "card";
         let CandP = document.createElement("div"); CandP.className = "c-and-p";
         let course = document.createElement("div"); course.className = "course";
@@ -90,7 +91,7 @@ function mainLoader(data) {
         m.appendChild(mb); m.appendChild(mh); m.appendChild(mt); counter.appendChild(m);
         s.appendChild(sb); s.appendChild(sh); s.appendChild(st); counter.appendChild(s);
         card.appendChild(counter);
-        main.appendChild(card);
+        cardB.append(card); main.appendChild(cardB);
 
         let idvScript = document.createElement("script");
         idvScript.innerHTML = timeScriptWriter(idvData, i);
