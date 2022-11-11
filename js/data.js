@@ -1,4 +1,8 @@
 var data = [{
+    "course": "Last W Drop Day",
+    "prof": "Nov 17",
+    "finalDate": "Nov 18 2022 0:00:00 PST"
+},{
     "course": "MATH-101B-05",
     "prof": "Atique N.",
     "finalDate": "Dec 12 2022 15:00:00 PST"

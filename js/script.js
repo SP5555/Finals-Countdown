@@ -17,10 +17,13 @@ function shuffle(a) {
 
 async function bgInitialize() {
     let superBG = document.getElementById("superBG");
-    R = (Math.random() * 60) + 10;
-    G = (Math.random() * 60) + 10;
-    B = (Math.random() * 60) + 10;
-    lg = `linear-gradient(150deg, rgb(${R}, ${G}, ${B}), rgb(${G/2}, ${B/2}, ${R/2}))`;
+    R = (Math.random() * 80) + 10;
+    G = (Math.random() * 80) + 10;
+    B = (Math.random() * 80) + 10;
+    s1 = `rgb(${R}, ${G}, ${B})`;
+    s2 = `rgb(${G/4}, ${B/4}, ${R/4})`;
+    s3 = `rgb(${B}, ${R}, ${G})`;
+    lg = `linear-gradient(-150deg, ${s1}, ${s2}, ${s3})`;
     superBG.style.backgroundImage = lg;
     await sleep(200);
     superBG.style.filter = "opacity(1)";
@@ -40,14 +43,14 @@ function timeScriptWriter(idvData, i) {
             var h = Math.floor((dif % ${(1000 * 60 * 60 * 24)}) / ${(1000 * 60 * 60)});
             var m = Math.floor((dif % ${(1000 * 60 * 60)}) / ${(1000 * 60)});
             var s = Math.floor((dif % ${(1000 * 60)}) / 1e3);
-            if (d > 40) {
+            if (d > 30) {
                 document.getElementById("db${i}").style.height = "100%";
             } else {
-                document.getElementById("db${i}").style.height = \`\${d/40 * 100}%\`;
+                document.getElementById("db${i}").style.height = \`\${d/30*100}%\`;
             }
-            document.getElementById("hb${i}").style.height = \`\${h/24 * 100}%\`;
-            document.getElementById("mb${i}").style.height = \`\${m/60 * 100}%\`;
-            document.getElementById("sb${i}").style.height = \`\${s/60 * 100}%\`;
+            document.getElementById("hb${i}").style.height = \`\${h/24*100}%\`;
+            document.getElementById("mb${i}").style.height = \`\${m/60*100}%\`;
+            document.getElementById("sb${i}").style.height = \`\${s/60*100}%\`;
             if (d${i}.innerHTML != d) {d${i}.innerHTML = d;}
             if (h${i}.innerHTML != h) {h${i}.innerHTML = h;}
             if (m${i}.innerHTML != m) {m${i}.innerHTML = m;}
@@ -66,7 +69,7 @@ function timeScriptWriter(idvData, i) {
     return r;
 }
 
-async function mainLoader(data) {
+function mainLoader(data) {
     let main = document.getElementById("main");
     let scriptMain = document.getElementById("timeScript");
     for (var i = 0; i < data.length; i++) {
@@ -97,7 +100,7 @@ async function mainLoader(data) {
 
         course.innerHTML = idvData.course; prof.innerHTML = idvData.prof;
         // R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
-        var RGB = [(Math.random() * 100), (Math.random() * 40) + 80, (Math.random() * 40) + 180];
+        var RGB = [(Math.random() * 60) + 0, (Math.random() * 60) + 60, (Math.random() * 120) + 100];
         shuffle(RGB);
         R = RGB[0]; G = RGB[1]; B = RGB[2];
         RGBs = `rgba(${R+((256-R)*0.8)}, ${G+(256-G)*0.8}, ${B+(256-B)*0.8}, 1)`;
@@ -110,9 +113,9 @@ async function mainLoader(data) {
         hb.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;
         db.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;
         sb.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
-        mb.style.backgroundColor = `rgb(${R+((256-R)*0.15)}, ${G+((256-G)*0.15)}, ${B+((256-B)*0.15)})`;
-        hb.style.backgroundColor = `rgb(${R+((256-R)*0.30)}, ${G+((256-G)*0.30)}, ${B+((256-B)*0.30)})`;
-        db.style.backgroundColor = `rgb(${R+((256-R)*0.45)}, ${G+((256-G)*0.45)}, ${B+((256-B)*0.45)})`;
+        mb.style.backgroundColor = `rgb(${R+((256-R)*0.1)}, ${G+((256-G)*0.1)}, ${B+((256-B)*0.1)})`;
+        hb.style.backgroundColor = `rgb(${R+((256-R)*0.2)}, ${G+((256-G)*0.2)}, ${B+((256-B)*0.2)})`;
+        db.style.backgroundColor = `rgb(${R+((256-R)*0.3)}, ${G+((256-G)*0.3)}, ${B+((256-B)*0.3)})`;
         
         CandP.appendChild(course); CandP.appendChild(prof);
         card.appendChild(CandP);
@@ -126,10 +129,6 @@ async function mainLoader(data) {
         let idvScript = document.createElement("script");
         idvScript.innerHTML = timeScriptWriter(idvData, i);
         scriptMain.appendChild(idvScript);
-
-        await sleep(100);
-        card.style.transform = "scale(1, 1)";
-        card.style.filter = "hue-rotate(0)";
     }
     scriptMain.remove();
 }

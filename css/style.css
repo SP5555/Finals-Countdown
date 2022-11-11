@@ -13,6 +13,11 @@
     font-family: Comfortaa;
     src: url(../fonts/Comfortaa.ttf);
 }
+@keyframes cardAni {
+    0% {transform: translateY(20px); filter: opacity(0);}
+    100% {transform: translateY(0px); filter: opacity(1);}
+    
+}
 @keyframes pulsate{
     0% {filter: opacity(1) invert(0);}
     10% {filter: opacity(1) invert(0);}
@@ -77,9 +82,10 @@ body::-webkit-scrollbar {display: none;}
 }
 .card-border{padding: 14px; width: 100%;}
 .card{
-    height: auto; width: auto; border-radius: 16px; transform: scale(0.8, 0); filter: hue-rotate(90deg);
+    height: auto; width: auto; border-radius: 16px; padding: 16px;
     background-size: 200%; background-position: right; transition-duration: 0.8s;
-    padding: 16px;
+    animation-name: cardAni; animation-duration: 0.8s; animation-fill-mode: forwards;
+    animation-direction: normal; animation-iteration-count: 1;
 }
 .c-and-p{display: flex; flex-direction: row; align-items: flex-end; font-weight: bold;}
 .course{font-size: 28px; transition-duration: 0.4s;}
