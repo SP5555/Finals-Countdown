@@ -1,5 +1,31 @@
 var t1 = new Date().getTime();
 
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function shuffle(a) {
+    let currentIndex = a.length, randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [a[currentIndex], a[randomIndex]] = [a[randomIndex], a[currentIndex]];
+    }
+  
+    return a;
+  }
+
+async function bgInitialize() {
+    let superBG = document.getElementById("superBG");
+    R = (Math.random() * 60) + 10;
+    G = (Math.random() * 60) + 10;
+    B = (Math.random() * 60) + 10;
+    lg = `linear-gradient(150deg, rgb(${R}, ${G}, ${B}), rgb(${G/2}, ${B/2}, ${R/2}))`;
+    superBG.style.backgroundImage = lg;
+    await sleep(200);
+    superBG.style.filter = "opacity(1)";
+}
+
 function timeScriptWriter(idvData, i) {
     var FEDate = Date.parse(idvData.finalDate);
     r = `
@@ -40,7 +66,7 @@ function timeScriptWriter(idvData, i) {
     return r;
 }
 
-function mainLoader(data) {
+async function mainLoader(data) {
     let main = document.getElementById("main");
     let scriptMain = document.getElementById("timeScript");
     for (var i = 0; i < data.length; i++) {
@@ -70,9 +96,12 @@ function mainLoader(data) {
         let st = document.createElement("span"); st.className = "slot-tail"; st.innerHTML = "seconds";
 
         course.innerHTML = idvData.course; prof.innerHTML = idvData.prof;
-        R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
-        // RGBs = `rgba(${R+((256-R)*0.8)}, ${G+(256-G)*0.8}, ${B+(256-B)*0.8}, 1)`;
-        RGBs = `rgba(256, 256, 256, 1)`;
+        // R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
+        var RGB = [(Math.random() * 100), (Math.random() * 40) + 80, (Math.random() * 40) + 180];
+        shuffle(RGB);
+        R = RGB[0]; G = RGB[1]; B = RGB[2];
+        RGBs = `rgba(${R+((256-R)*0.8)}, ${G+(256-G)*0.8}, ${B+(256-B)*0.8}, 1)`;
+        // RGBs = `rgba(256, 256, 256, 1)`;
         RGBe = `rgba(${R*0.6}, ${G*0.6}, ${B*0.6}, 1)`;
         card.style.backgroundImage = `linear-gradient(150deg, ${RGBs}, ${RGBe})`;
         card.style.boxShadow = `0px 0px 28px rgb(${R}, ${G}, ${B})`;
@@ -97,10 +126,15 @@ function mainLoader(data) {
         let idvScript = document.createElement("script");
         idvScript.innerHTML = timeScriptWriter(idvData, i);
         scriptMain.appendChild(idvScript);
+
+        await sleep(100);
+        card.style.transform = "scale(1, 1)";
+        card.style.filter = "hue-rotate(0)";
     }
     scriptMain.remove();
 }
 
+bgInitialize();
 mainLoader(data);
 
 var t2 = new Date().getTime();
