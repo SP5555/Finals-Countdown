@@ -100,7 +100,7 @@ function mainLoader(data) {
 
         course.innerHTML = idvData.course; prof.innerHTML = idvData.prof;
         // R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
-        var RGB = [(Math.random() * 60) + 0, (Math.random() * 60) + 60, (Math.random() * 120) + 100];
+        var RGB = [(Math.random() * 60) + 0, (Math.random() * 100) + 60, (Math.random() * 140) + 100];
         shuffle(RGB);
         R = RGB[0]; G = RGB[1]; B = RGB[2];
         RGBs = `rgba(${R+((256-R)*0.8)}, ${G+(256-G)*0.8}, ${B+(256-B)*0.8}, 1)`;
