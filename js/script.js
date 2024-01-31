@@ -99,19 +99,25 @@ function mainLoader(data) {
         let st = document.createElement("span"); st.className = "slot-tail"; st.innerHTML = "seconds";
 
         course.innerHTML = idvData.course; prof.innerHTML = idvData.prof;
-        // R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
-        var RGB = [(Math.random() * 60) + 0, (Math.random() * 100) + 60, (Math.random() * 140) + 100];
-        shuffle(RGB);
-        R = RGB[0]; G = RGB[1]; B = RGB[2];
+
+        // manual color
+        R = idvData.color[0]; G = idvData.color[1]; B = idvData.color[2];
+        
+        // random color
+        // var RGB = [(Math.random() * 60) + 0, (Math.random() * 100) + 60, (Math.random() * 140) + 100];
+        // shuffle(RGB);
+        // R = RGB[0]; G = RGB[1]; B = RGB[2];
+        
         RGBs = `rgba(${R+((256-R)*0.8)}, ${G+(256-G)*0.8}, ${B+(256-B)*0.8}, 1)`;
         // RGBs = `rgba(256, 256, 256, 1)`;
-        RGBe = `rgba(${R*0.6}, ${G*0.6}, ${B*0.6}, 1)`;
+        
+        RGBe = `rgba(${R*0.7}, ${G*0.7}, ${B*0.7}, 1)`;
         card.style.backgroundImage = `linear-gradient(150deg, ${RGBs}, ${RGBe})`;
-        card.style.boxShadow = `0px 0px 28px rgb(${R}, ${G}, ${B})`;
-        sb.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;
-        mb.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;
-        hb.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;
-        db.style.boxShadow = `0px 0px 8px rgb(${R}, ${G}, ${B})`;
+        // card.style.boxShadow = `0px 0px 10px rgb(${R}, ${G}, ${B})`;
+        // sb.style.boxShadow = `0px 0px 4px rgb(${R}, ${G}, ${B})`;
+        // mb.style.boxShadow = `0px 0px 4px rgb(${R}, ${G}, ${B})`;
+        // hb.style.boxShadow = `0px 0px 4px rgb(${R}, ${G}, ${B})`;
+        // db.style.boxShadow = `0px 0px 4px rgb(${R}, ${G}, ${B})`;
         sb.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
         mb.style.backgroundColor = `rgb(${R+((256-R)*0.1)}, ${G+((256-G)*0.1)}, ${B+((256-B)*0.1)})`;
         hb.style.backgroundColor = `rgb(${R+((256-R)*0.2)}, ${G+((256-G)*0.2)}, ${B+((256-B)*0.2)})`;
@@ -133,7 +139,7 @@ function mainLoader(data) {
     scriptMain.remove();
 }
 
-bgInitialize();
+// bgInitialize();
 mainLoader(data);
 
 var t2 = new Date().getTime();
