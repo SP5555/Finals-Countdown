@@ -7,6 +7,8 @@
     --c2: #232c31;
     --c3: #37464d;
     --c4: #3c4d54;
+    --bord-radius-big: 8px;
+    --bord-radius-small: 4px;
     --fimg: 40px;
 }
 @font-face {
@@ -20,7 +22,7 @@
 }
 @keyframes pulsate{
     0% {filter: opacity(1) invert(0);}
-    10% {filter: opacity(1) invert(0);}
+    20% {filter: opacity(1) invert(0);}
     80% {filter: opacity(0.2) invert(20%);}
     100% {filter: opacity(1) invert(0);}
 }
@@ -80,9 +82,9 @@ body::-webkit-scrollbar {display: none;}
 /* cards */
 .main-chart{display: flex; flex-direction: row; flex-wrap: wrap;
 }
-.card-border{padding: 14px; width: 100%;}
+.card-border{padding: 8px; width: 100%;}
 .card{
-    height: auto; width: auto; border-radius: 16px; padding: 16px;
+    height: auto; width: auto; border-radius: var(--bord-radius-big); padding: 16px;
     background-size: 200%; background-position: right; transition-duration: 0.8s;
     animation-name: cardAni; animation-duration: 0.8s; animation-fill-mode: forwards;
     animation-direction: normal; animation-iteration-count: 1;
@@ -99,7 +101,7 @@ body::-webkit-scrollbar {display: none;}
     height: 140px; width: 72px;
 }
 .slot-bg{
-    position: absolute; border-radius: 8px;
+    position: absolute; border-radius: var(--bord-radius-small);
     bottom: 0px; transition-duration: 0.6s;
     height: 0px; width: 72px;
 }
@@ -119,6 +121,7 @@ body::-webkit-scrollbar {display: none;}
 .card:hover .prof{animation-name: profAni; animation-duration: 0.6s;
     animation-direction: normal; animation-iteration-count: 1; animation-fill-mode: forwards;}
 .card:hover .slot-bg{
+    box-shadow: #666 1px 1px 2px;
     animation-name: pulsate; animation-duration: 1s;
     animation-direction: normal; animation-iteration-count: infinite;}
 .card:hover .slot-head, .card:hover .slot-tail{color: var(--txtb);}

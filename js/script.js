@@ -111,7 +111,7 @@ function mainLoader(data) {
         RGBs = `rgba(${R+((256-R)*0.8)}, ${G+(256-G)*0.8}, ${B+(256-B)*0.8}, 1)`;
         // RGBs = `rgba(256, 256, 256, 1)`;
         
-        RGBe = `rgba(${R*0.7}, ${G*0.7}, ${B*0.7}, 1)`;
+        RGBe = `rgba(${R*0.6}, ${G*0.6}, ${B*0.6}, 1)`;
         card.style.backgroundImage = `linear-gradient(150deg, ${RGBs}, ${RGBe})`;
         // card.style.boxShadow = `0px 0px 10px rgb(${R}, ${G}, ${B})`;
         // sb.style.boxShadow = `0px 0px 4px rgb(${R}, ${G}, ${B})`;
